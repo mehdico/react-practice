@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,28 +12,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
 
     <title>React App</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <div id="root"></div>
     <script type="text/babel">
 
 
-    ReactDOM.render(App(),
+        ReactDOM.render(App(),
       document.getElementById('root')
     );
 
     function App() {
         const firstName = "mehdi"
         const lastName = "mousavi"
-    return (
-        <div>
-            <h1>hi {firstName + " " + lastName}</h1>
-        </div>
-    )
+
+
+        const styles1 = {
+            color: "#ffff00",
+            backgroundColor:"#959595",
+
+            fontSize: 50, //cant write px here (default is px)
+            //or
+            fontSize: "50px",
+        }
+
+        const date = new Date()
+        const hours = date.getHours()
+        let timeOfDay
+        if (hours < 12) {
+            timeOfDay = "morning"
+        } else if (hours >= 12 && hours < 19) {
+            timeOfDay = "afternoon"
+            styles1.color = "#00ff00"
+        } else {
+            timeOfDay = "night"
+        }
+
+
+
+        return (
+            <div>
+                <h1>hi {firstName + " " + lastName}!</h1>
+                <h1>hi {firstName} {lastName}!</h1>
+                <h1 style={{color: "#ff0000",'background-color':"#959595"}}>Good {timeOfDay}!</h1>
+                <h1 style={{color: "#ff0000",backgroundColor:"#959595"}}>Good {timeOfDay}!</h1>
+                <h1 style={styles1}>Good {timeOfDay}!</h1>
+            </div>
+        )
 }
     
     </script>
-  </body>
+</body>
+
 </html>
