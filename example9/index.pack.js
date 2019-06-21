@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(28);
+  module.exports = __webpack_require__(26);
 } else {
-  module.exports = __webpack_require__(27);
+  module.exports = __webpack_require__(25);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -549,7 +549,7 @@ module.exports = ExecutionEnvironment;
  * 
  */
 
-var isTextNode = __webpack_require__(23);
+var isTextNode = __webpack_require__(21);
 
 /*eslint-disable no-bitwise */
 
@@ -775,7 +775,7 @@ module.exports = warning;
 var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret = __webpack_require__(24);
+  var ReactPropTypesSecret = __webpack_require__(22);
   var loggedTypeFailures = {};
   var has = Function.call.bind(Object.prototype.hasOwnProperty);
 
@@ -883,17 +883,13 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(15);
+var _ContactCardA = __webpack_require__(27);
 
-var _Header2 = _interopRequireDefault(_Header);
+var _ContactCardA2 = _interopRequireDefault(_ContactCardA);
 
-var _MainContent = __webpack_require__(16);
+var _ContactCardB = __webpack_require__(28);
 
-var _MainContent2 = _interopRequireDefault(_MainContent);
-
-var _Footer = __webpack_require__(14);
-
-var _Footer2 = _interopRequireDefault(_Footer);
+var _ContactCardB2 = _interopRequireDefault(_ContactCardB);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -901,9 +897,24 @@ function App() {
     return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_MainContent2.default, null),
-        _react2.default.createElement(_Footer2.default, null)
+        _react2.default.createElement(_ContactCardA2.default, {
+            name: "Mr. Whiskerson",
+            imgUrl: "http://placekitten.com/300/200",
+            phone: "(212) 555-1234",
+            email: "mr.whiskaz@catnap.meow"
+        }),
+        _react2.default.createElement(_ContactCardA2.default, {
+            name: "Fluffykins",
+            imgUrl: "http://placekitten.com/400/200",
+            phone: "(212) 555-2345",
+            email: "fluff@me.com"
+        }),
+        _react2.default.createElement(_ContactCardB2.default, {
+            contact: { name: "dsadsadas", imgUrl: "http://placekitten.com/200/200", phone: "(3-1234", email: "dasdsa.meow" }
+        }),
+        _react2.default.createElement(_ContactCardB2.default, {
+            contact: { name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow" }
+        })
     );
 }
 
@@ -948,96 +959,16 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(26);
+  module.exports = __webpack_require__(24);
 } else {
-  module.exports = __webpack_require__(25);
+  module.exports = __webpack_require__(23);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Footer() {
-    return _react2.default.createElement(
-        "footer",
-        null,
-        "-This is the footer-"
-    );
-}
-
-exports.default = Footer;
-
-/***/ }),
+/* 14 */,
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Header() {
-    return _react2.default.createElement(
-        "header",
-        null,
-        "This is the header"
-    );
-}
-
-exports.default = Header;
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function MainContent() {
-    return _react2.default.createElement(
-        "main",
-        null,
-        "This is the main section"
-    );
-}
-
-exports.default = MainContent;
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1060,7 +991,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1095,7 +1026,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1110,7 +1041,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(18);
+var camelize = __webpack_require__(16);
 
 var msPattern = /^-ms-/;
 
@@ -1138,7 +1069,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1174,7 +1105,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1189,7 +1120,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(20);
+var hyphenate = __webpack_require__(18);
 
 var msPattern = /^ms-/;
 
@@ -1216,7 +1147,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1244,7 +1175,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1259,7 +1190,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(22);
+var isNode = __webpack_require__(20);
 
 /**
  * @param {*} object The object to check.
@@ -1272,7 +1203,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1291,7 +1222,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1323,8 +1254,8 @@ var getActiveElement = __webpack_require__(8);
 var shallowEqual = __webpack_require__(9);
 var containsNode = __webpack_require__(7);
 var emptyObject = __webpack_require__(3);
-var hyphenateStyleName = __webpack_require__(21);
-var camelizeStyleName = __webpack_require__(19);
+var hyphenateStyleName = __webpack_require__(19);
+var camelizeStyleName = __webpack_require__(17);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -18605,7 +18536,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18850,7 +18781,7 @@ var vi={default:qi},wi=vi&&qi||vi;module.exports=wi.default?wi.default:wi;
 
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20332,7 +20263,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20359,6 +20290,96 @@ _calculateChangedBits:b,_defaultValue:a,_currentValue:a,_currentValue2:a,_change
 b.key&&(g=""+b.key);var l=void 0;a.type&&a.type.defaultProps&&(l=a.type.defaultProps);for(c in b)K.call(b,c)&&!L.hasOwnProperty(c)&&(d[c]=void 0===b[c]&&void 0!==l?l[c]:b[c])}c=arguments.length-2;if(1===c)d.children=e;else if(1<c){l=Array(c);for(var m=0;m<c;m++)l[m]=arguments[m+2];d.children=l}return{$$typeof:t,type:a.type,key:g,ref:h,props:d,_owner:f}},createFactory:function(a){var b=M.bind(null,a);b.type=a;return b},isValidElement:N,version:"16.4.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:J,
 assign:k}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default?Z.default:Z;
 
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ContactCardA(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "contact-card" },
+        _react2.default.createElement("img", { src: props.imgUrl }),
+        _react2.default.createElement(
+            "h3",
+            null,
+            "Name: ",
+            props.name
+        ),
+        _react2.default.createElement(
+            "p",
+            null,
+            "Phone: ",
+            props.phone
+        ),
+        _react2.default.createElement(
+            "p",
+            null,
+            "Email: ",
+            props.email
+        )
+    );
+}
+
+exports.default = ContactCardA;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ContactCardB(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "contact-card" },
+        _react2.default.createElement("img", { src: props.contact.imgUrl }),
+        _react2.default.createElement(
+            "h3",
+            null,
+            "Name: ",
+            props.contact.name
+        ),
+        _react2.default.createElement(
+            "p",
+            null,
+            "Phone: ",
+            props.contact.phone
+        ),
+        _react2.default.createElement(
+            "p",
+            null,
+            "Email: ",
+            props.contact.email
+        )
+    );
+}
+
+exports.default = ContactCardB;
 
 /***/ })
 /******/ ]);

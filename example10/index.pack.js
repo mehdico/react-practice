@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(28);
-} else {
   module.exports = __webpack_require__(27);
+} else {
+  module.exports = __webpack_require__(26);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -549,7 +549,7 @@ module.exports = ExecutionEnvironment;
  * 
  */
 
-var isTextNode = __webpack_require__(23);
+var isTextNode = __webpack_require__(22);
 
 /*eslint-disable no-bitwise */
 
@@ -775,7 +775,7 @@ module.exports = warning;
 var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret = __webpack_require__(24);
+  var ReactPropTypesSecret = __webpack_require__(23);
   var loggedTypeFailures = {};
   var has = Function.call.bind(Object.prototype.hasOwnProperty);
 
@@ -883,27 +883,25 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(15);
+var _Product = __webpack_require__(14);
 
-var _Header2 = _interopRequireDefault(_Header);
+var _Product2 = _interopRequireDefault(_Product);
 
-var _MainContent = __webpack_require__(16);
+var _vschoolProducts = __webpack_require__(15);
 
-var _MainContent2 = _interopRequireDefault(_MainContent);
-
-var _Footer = __webpack_require__(14);
-
-var _Footer2 = _interopRequireDefault(_Footer);
+var _vschoolProducts2 = _interopRequireDefault(_vschoolProducts);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
+    var productComponents = _vschoolProducts2.default.map(function (item) {
+        return _react2.default.createElement(_Product2.default, { key: item.id, product: item });
+    });
+
     return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_MainContent2.default, null),
-        _react2.default.createElement(_Footer2.default, null)
+        productComponents
     );
 }
 
@@ -948,9 +946,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(26);
-} else {
   module.exports = __webpack_require__(25);
+} else {
+  module.exports = __webpack_require__(24);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -972,15 +970,26 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Footer() {
+function Product(props) {
     return _react2.default.createElement(
-        "footer",
+        "div",
         null,
-        "-This is the footer-"
+        _react2.default.createElement(
+            "h2",
+            null,
+            props.product.name
+        ),
+        _react2.default.createElement(
+            "p",
+            null,
+            props.product.price.toLocaleString("en-US", { style: "currency", currency: "USD" }),
+            " - ",
+            props.product.description
+        )
     );
 }
 
-exports.default = Footer;
+exports.default = Product;
 
 /***/ }),
 /* 15 */
@@ -992,52 +1001,52 @@ exports.default = Footer;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var products = [{
+    id: "1",
+    name: "Pencil",
+    price: 1,
+    description: "Perfect for those who can't remember things! 5/5 Highly recommend."
+}, {
+    id: "2",
+    name: "Housing",
+    price: 0,
+    description: "Housing provided for out-of-state students or those who can't commute"
+}, {
+    id: "3",
+    name: "Computer Rental",
+    price: 300,
+    description: "Don't have a computer? No problem!"
+}, {
+    id: "4",
+    name: "Coffee",
+    price: 2,
+    description: "Wake up!"
+}, {
+    id: "5",
+    name: "Snacks",
+    price: 0,
+    description: "Free snacks!"
+}, {
+    id: "6",
+    name: "Rubber Duckies",
+    price: 3.50,
+    description: "To help you solve your hardest coding problems."
+}, {
+    id: "7",
+    name: "Fidget Spinner",
+    price: 21.99,
+    description: "Because we like to pretend we're in high school."
+}, {
+    id: "8",
+    name: "Sticker Set",
+    price: 14.99,
+    description: "To prove to other devs you know a lot."
+}];
 
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Header() {
-    return _react2.default.createElement(
-        "header",
-        null,
-        "This is the header"
-    );
-}
-
-exports.default = Header;
+exports.default = products;
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function MainContent() {
-    return _react2.default.createElement(
-        "main",
-        null,
-        "This is the main section"
-    );
-}
-
-exports.default = MainContent;
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1060,7 +1069,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1095,7 +1104,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1110,7 +1119,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(18);
+var camelize = __webpack_require__(17);
 
 var msPattern = /^-ms-/;
 
@@ -1138,7 +1147,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1174,7 +1183,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1189,7 +1198,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(20);
+var hyphenate = __webpack_require__(19);
 
 var msPattern = /^ms-/;
 
@@ -1216,7 +1225,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1244,7 +1253,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1259,7 +1268,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(22);
+var isNode = __webpack_require__(21);
 
 /**
  * @param {*} object The object to check.
@@ -1272,7 +1281,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1291,7 +1300,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1323,8 +1332,8 @@ var getActiveElement = __webpack_require__(8);
 var shallowEqual = __webpack_require__(9);
 var containsNode = __webpack_require__(7);
 var emptyObject = __webpack_require__(3);
-var hyphenateStyleName = __webpack_require__(21);
-var camelizeStyleName = __webpack_require__(19);
+var hyphenateStyleName = __webpack_require__(20);
+var camelizeStyleName = __webpack_require__(18);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -18605,7 +18614,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18850,7 +18859,7 @@ var vi={default:qi},wi=vi&&qi||vi;module.exports=wi.default?wi.default:wi;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20332,7 +20341,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
