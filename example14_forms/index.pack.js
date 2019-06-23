@@ -885,6 +885,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Form = __webpack_require__(27);
+
+var _Form2 = _interopRequireDefault(_Form);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -893,192 +897,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function btnXClicked() {
-  alert("X!");
-}
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App() {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
-
-    _this.state = {
-      count: 0,
-      answer: "Yes",
-      isLoading: true,
-      isLoggedIn: false
-    };
-    _this.countClicked = _this.countClicked.bind(_this);
-    _this.logInOurClicked = _this.logInOurClicked.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
   }
 
   _createClass(App, [{
-    key: "sum",
-    value: function sum(a, b) {
-      return a + b;
-    }
-  }, {
-    key: "btnYClicked",
-    value: function btnYClicked() {
-      alert("Y!");
-    }
-  }, {
-    key: "countClicked",
-    value: function countClicked() {
-      // setState wont work if dont add bint to class in the constructor
-      this.setState(function (prevState) {
-        // prevState in prev(current) version of state object
-        return {
-          count: prevState.count + 1
-        };
-      });
-      // equals to =>  this.setState({count: this.state.count + 1}) 
-    }
-  }, {
-    key: "logInOurClicked",
-    value: function logInOurClicked() {
-      this.setState(function (prevState) {
-        return {
-          isLoggedIn: !prevState.isLoggedIn
-        };
-      });
-    }
-    // LYFECYCLE METHODS >>>
-
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      //componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).
-
-
-      setTimeout(function () {
-        _this2.setState({
-          isLoading: false
-        });
-      }, 1000);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
-    // teardown or cleanup your code before your component disappears
-    // (E.g. remove event listeners)
-
-
-    // getSnapshotBeforeUpdate(prevProps, prevState) {
-    //   //getSnapshotBeforeUpdate() is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
-    // }
-    // shouldComponentUpdate(nextProps, nextState) {
-    //   // return true if want it to update
-    //   // return false if not
-    // }
-    // <<< LYFECYCLE METHODS
-
-  }, {
     key: "render",
     value: function render() {
-      var s = this.sum(5, 5);
-      if (this.state.isLoading) {
-
-        return _react2.default.createElement(
-          "div",
-          null,
-          _react2.default.createElement(
-            "h1",
-            null,
-            "Loading..."
-          )
-        );
-      } else {
-
-        var logInOutButtonText = this.state.isLoggedIn ? "LOG OUT" : "LOG IN";
-        var loginStatusText = this.state.isLoggedIn ? "Logged in" : "Logged out";
-
-        return _react2.default.createElement(
-          "div",
-          null,
-          _react2.default.createElement(
-            "h1",
-            null,
-            "Hi, sum is ",
-            s
-          ),
-          _react2.default.createElement(
-            "h3",
-            null,
-            "if want to use [props] in a class, must write [this.props], also no need to defile props in function params"
-          ),
-          _react2.default.createElement(
-            "h2",
-            null,
-            "answer is ",
-            this.state.answer
-          ),
-          _react2.default.createElement(
-            "button",
-            { onClick: function onClick() {
-                alert("hi!");
-              } },
-            "Click Me!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onMouseOver: function onMouseOver() {
-                alert("hi!");
-              } },
-            "hover Me!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onClick: btnXClicked },
-            "Click Me3!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onClick: this.btnYClicked },
-            "Click Me3!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "h1",
-            null,
-            this.state.count
-          ),
-          _react2.default.createElement(
-            "button",
-            { onClick: this.countClicked },
-            "Add"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onClick: this.logInOurClicked },
-            logInOutButtonText
-          ),
-          _react2.default.createElement(
-            "h1",
-            null,
-            loginStatusText
-          )
-        );
-      }
+      return _react2.default.createElement(_Form2.default, null);
     }
   }]);
 
@@ -20456,6 +20287,213 @@ _calculateChangedBits:b,_defaultValue:a,_currentValue:a,_currentValue2:a,_change
 b.key&&(g=""+b.key);var l=void 0;a.type&&a.type.defaultProps&&(l=a.type.defaultProps);for(c in b)K.call(b,c)&&!L.hasOwnProperty(c)&&(d[c]=void 0===b[c]&&void 0!==l?l[c]:b[c])}c=arguments.length-2;if(1===c)d.children=e;else if(1<c){l=Array(c);for(var m=0;m<c;m++)l[m]=arguments[m+2];d.children=l}return{$$typeof:t,type:a.type,key:g,ref:h,props:d,_owner:f}},createFactory:function(a){var b=M.bind(null,a);b.type=a;return b},isValidElement:N,version:"16.4.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:J,
 assign:k}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default?Z.default:Z;
 
+
+/***/ }),
+/* 26 */,
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Form = function (_React$Component) {
+  _inherits(Form, _React$Component);
+
+  function Form() {
+    _classCallCheck(this, Form);
+
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this));
+
+    _this.state = {
+      firstName: "A",
+      lastName: "B",
+      agree: true,
+      gender: "",
+      color: "red"
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.cbHandleChange = _this.cbHandleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(Form, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState(_defineProperty({}, event.target.name, event.target.value));
+      // <<< equals >>
+      // if(event.target.name == "firstName"){
+      //   this.setState({
+      //     firstName: event.target.value
+      //   })
+      // }else if (event.target.name == "lastName"){
+      //   this.setState({
+      //     lastName: event.target.value
+      //   })
+      // }
+    }
+  }, {
+    key: "cbHandleChange",
+    value: function cbHandleChange(event) {
+      var _event$target = event.target,
+          name = _event$target.name,
+          value = _event$target.value,
+          type = _event$target.type,
+          checked = _event$target.checked;
+
+      type === "checkbox" ? this.setState(_defineProperty({}, name, checked)) : this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      alert("sent!");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "form",
+        null,
+        _react2.default.createElement("input", {
+          type: "text",
+          value: this.state.firstName,
+          name: "firstName",
+          placeholder: "First Name",
+          onChange: this.handleChange
+        }),
+        _react2.default.createElement("input", { type: "text", value: this.state.lastName, name: "lastName", placeholder: "Last Name", onChange: this.handleChange }),
+        _react2.default.createElement(
+          "h1",
+          null,
+          this.state.firstName,
+          " ",
+          this.state.lastName
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("textarea", { value: "default value", readOnly: true }),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "label",
+          null,
+          _react2.default.createElement("input", { type: "checkbox",
+            name: "agree",
+            checked: this.state.agree,
+            onChange: this.cbHandleChange
+          }),
+          "Is Agree?"
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "label",
+          null,
+          _react2.default.createElement("input", {
+            type: "radio",
+            name: "gender",
+            value: "male",
+            checked: this.state.gender === "male",
+            onChange: this.handleChange
+          }),
+          " Male"
+        ),
+        _react2.default.createElement(
+          "label",
+          null,
+          _react2.default.createElement("input", {
+            type: "radio",
+            name: "gender",
+            value: "female",
+            checked: this.state.gender === "female",
+            onChange: this.handleChange
+          }),
+          " Female"
+        ),
+        _react2.default.createElement(
+          "h2",
+          null,
+          "You are a ",
+          this.state.gender
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "label",
+          null,
+          "Color:"
+        ),
+        _react2.default.createElement(
+          "select",
+          {
+            value: this.state.color,
+            onChange: this.handleChange,
+            name: "color"
+          },
+          _react2.default.createElement(
+            "option",
+            { value: "blue" },
+            "Blue"
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "green" },
+            "Green"
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "red" },
+            "Red"
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "orange" },
+            "Orange"
+          ),
+          _react2.default.createElement(
+            "option",
+            { value: "yellow" },
+            "Yellow"
+          )
+        ),
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Your favorite color is ",
+          this.state.color
+        ),
+        _react2.default.createElement(
+          "button",
+          { onClick: this.handleSubmit },
+          "submit"
+        )
+      );
+    }
+  }]);
+
+  return Form;
+}(_react2.default.Component);
+
+exports.default = Form;
 
 /***/ })
 /******/ ]);

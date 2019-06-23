@@ -893,10 +893,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function btnXClicked() {
-  alert("X!");
-}
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -906,179 +902,37 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      count: 0,
-      answer: "Yes",
-      isLoading: true,
-      isLoggedIn: false
+      isLoading: false,
+      person: {}
     };
-    _this.countClicked = _this.countClicked.bind(_this);
-    _this.logInOurClicked = _this.logInOurClicked.bind(_this);
+
     return _this;
   }
 
   _createClass(App, [{
-    key: "sum",
-    value: function sum(a, b) {
-      return a + b;
-    }
-  }, {
-    key: "btnYClicked",
-    value: function btnYClicked() {
-      alert("Y!");
-    }
-  }, {
-    key: "countClicked",
-    value: function countClicked() {
-      // setState wont work if dont add bint to class in the constructor
-      this.setState(function (prevState) {
-        // prevState in prev(current) version of state object
-        return {
-          count: prevState.count + 1
-        };
-      });
-      // equals to =>  this.setState({count: this.state.count + 1}) 
-    }
-  }, {
-    key: "logInOurClicked",
-    value: function logInOurClicked() {
-      this.setState(function (prevState) {
-        return {
-          isLoggedIn: !prevState.isLoggedIn
-        };
-      });
-    }
-    // LYFECYCLE METHODS >>>
-
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      //componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).
-
-
-      setTimeout(function () {
+      this.setState({ isLoading: true });
+      fetch("https://swapi.co/api/people/1").then(function (response) {
+        return response.json();
+      }).then(function (data) {
         _this2.setState({
-          isLoading: false
+          isLoading: false,
+          person: data
         });
-      }, 1000);
+      });
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
-    // teardown or cleanup your code before your component disappears
-    // (E.g. remove event listeners)
-
-
-    // getSnapshotBeforeUpdate(prevProps, prevState) {
-    //   //getSnapshotBeforeUpdate() is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
-    // }
-    // shouldComponentUpdate(nextProps, nextState) {
-    //   // return true if want it to update
-    //   // return false if not
-    // }
-    // <<< LYFECYCLE METHODS
-
   }, {
     key: "render",
     value: function render() {
-      var s = this.sum(5, 5);
-      if (this.state.isLoading) {
-
-        return _react2.default.createElement(
-          "div",
-          null,
-          _react2.default.createElement(
-            "h1",
-            null,
-            "Loading..."
-          )
-        );
-      } else {
-
-        var logInOutButtonText = this.state.isLoggedIn ? "LOG OUT" : "LOG IN";
-        var loginStatusText = this.state.isLoggedIn ? "Logged in" : "Logged out";
-
-        return _react2.default.createElement(
-          "div",
-          null,
-          _react2.default.createElement(
-            "h1",
-            null,
-            "Hi, sum is ",
-            s
-          ),
-          _react2.default.createElement(
-            "h3",
-            null,
-            "if want to use [props] in a class, must write [this.props], also no need to defile props in function params"
-          ),
-          _react2.default.createElement(
-            "h2",
-            null,
-            "answer is ",
-            this.state.answer
-          ),
-          _react2.default.createElement(
-            "button",
-            { onClick: function onClick() {
-                alert("hi!");
-              } },
-            "Click Me!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onMouseOver: function onMouseOver() {
-                alert("hi!");
-              } },
-            "hover Me!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onClick: btnXClicked },
-            "Click Me3!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onClick: this.btnYClicked },
-            "Click Me3!"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "h1",
-            null,
-            this.state.count
-          ),
-          _react2.default.createElement(
-            "button",
-            { onClick: this.countClicked },
-            "Add"
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "button",
-            { onClick: this.logInOurClicked },
-            logInOutButtonText
-          ),
-          _react2.default.createElement(
-            "h1",
-            null,
-            loginStatusText
-          )
-        );
-      }
+      var text = this.state.isLoading ? "loading..." : this.state.person.name;
+      return _react2.default.createElement(
+        "div",
+        null,
+        text
+      );
     }
   }]);
 
