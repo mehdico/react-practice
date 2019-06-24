@@ -5,6 +5,8 @@ class Form extends React.Component {
 
   constructor() {
     super()
+
+    // we can define state array in main class body instead of constructor!
     this.state = {
       firstName: "A",
       lastName: "B",
@@ -13,7 +15,9 @@ class Form extends React.Component {
       color: "red",
     }
     this.handleChange = this.handleChange.bind(this)
-    this.cbHandleChange = this.cbHandleChange.bind(this)
+
+     // Change to use arrow functions so no need to bind (because of setState) anymore
+    // this.cbHandleChange = this.cbHandleChange.bind(this)
   }
 
   handleChange(event) {
@@ -33,7 +37,8 @@ class Form extends React.Component {
 
   }
 
-  cbHandleChange(event) {
+  // Change to use arrow functions so no need to bind (because of setState) anymore
+  cbHandleChange = (event) => {
     const {name, value, type, checked} = event.target
     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
   }
